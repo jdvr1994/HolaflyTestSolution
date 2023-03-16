@@ -6,10 +6,6 @@ class WookieePeople extends AbstractPeople {
     constructor(_peopleData){
         super(_peopleData)
 
-        Object.keys(_peopleData).forEach(v => {
-            console.log(v,WookieTranslator.from_wookie(v))
-        })
-
         this.id  = _peopleData.id
         this.name = WookieTranslator.getValueFromWookieeBody(_peopleData,"name")
         this.mass = _peopleData[WookieTranslator.to_wookie("mass")]

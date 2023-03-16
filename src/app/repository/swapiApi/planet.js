@@ -12,7 +12,7 @@ class PlanetRepository extends AbstractRepository {
     }
 
     async get(id, lang) {
-        const planetResponse = await this.source.genericRequest(`${swapi_base_url}planets/${id}`, 'GET', null, true);
+        const planetResponse = await this.source.genericRequest(`${swapi_base_url}planets/${id}`, 'GET', null, false);
         if(planetResponse.detail) throw new SwapiException('The planet was not found', planetResponse)
         planetResponse.id = id
         const gravity_value = parseFloat(planetResponse.gravity?.split(' ')[0])

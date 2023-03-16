@@ -13,7 +13,7 @@ class PeopleRepository extends AbstractRepository {
 
     async get(id, lang) {
         const format = lang? `?format=${lang}` : ''
-        const peopleResponse = await this.source.genericRequest(`${swapi_base_url}people/${id}`+ format, 'GET', null, true)
+        const peopleResponse = await this.source.genericRequest(`${swapi_base_url}people/${id}`+ format, 'GET', null, false)
         peopleResponse.id = id
         if(peopleResponse.detail) throw new SwapiException('The people was not found', peopleResponse)
         return peopleResponse? await People.peopleFactory(peopleResponse,lang) : peopleResponse
