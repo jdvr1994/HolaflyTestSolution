@@ -10,6 +10,7 @@ const planetSwapiRepository = new repositories.planetSwapiAPI(swapiFunctions)
 
 const controllers = {
     peopleController: new appControllers.people(peopleSeqRepository,peopleSwapiRepository,planetSeqRepository,planetSwapiRepository),
+    planetController: new appControllers.planet(planetSeqRepository,planetSwapiRepository),
 }
 
 module.exports = {
