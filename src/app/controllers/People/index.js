@@ -18,7 +18,7 @@ class PeopleController extends AbstractController {
     async getEntity(id, lang) {
         if(!this.validateId(id)) throw new ApplicationException("invalid peopleId");
 
-        let people = await this.people_rep.get(id, lang)
+        let people = await this.people_rep.get(id)
         if(!people){
             people = await this.people_ext_rep.get(id, lang)
             //TODO: make sure validation
