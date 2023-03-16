@@ -1,5 +1,6 @@
 const ApplicationException = require('./exceptions/application.exception');
 const DateBaseException = require('./exceptions/db.exception');
+const SwapiException = require('./exceptions/swapi.exception');
 class AbstractController {
     constructor(_repository, _ext_repository){
         if (this.constructor == AbstractController) {
@@ -31,7 +32,7 @@ class AbstractController {
         if(err instanceof ApplicationException){
             res.status(400);
             res.send(err.message);
-        }else if(err instanceof DateBaseException){
+        }else if(err instanceof SwapiException){
             res.status(err.code);
             res.send(err.message);
         }else{
