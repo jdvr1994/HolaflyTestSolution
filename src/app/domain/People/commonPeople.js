@@ -10,7 +10,7 @@ class CommonPeople extends AbstractPeople {
         this.height = _peopleData.height
         this.homeworldName = _peopleData.homeworld_name
         const splitted_homeworld_url = _peopleData.homeworld?.split(swapi_base_url)
-        this.homeworldId = _peopleData.homeworld_id? _peopleData.homeworld_id : splitted_homeworld_url.length > 1 ? splitted_homeworld_url[1].slice(0,-1) : null
+        this.homeworldId = _peopleData.homeworld_id? _peopleData.homeworld_id : splitted_homeworld_url?.length > 1 ? splitted_homeworld_url[1].slice(0,-1) : null
     }
 }
 

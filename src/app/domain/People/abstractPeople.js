@@ -36,8 +36,8 @@ class AbstractPeople {
         return this.homeworldId;
     }
 
-    getWeightOnPlanet(planetId){
-        throw new Error('To be implemented');
+    validateAllowToWeighOnPlanet(planetId){
+        if(`planets/${planetId}` === this.homeworldId) throw new ApplicationException(`It is not posible calculate the weight in the character's homeworld: ${planetId}`)
     }
 
     validatePeopleInit() {
@@ -52,6 +52,8 @@ class AbstractPeople {
         this.mass = parseInt(this.mass)
         this.height = parseInt(this.height)
     }
+
+
 }
 
 module.exports = AbstractPeople
