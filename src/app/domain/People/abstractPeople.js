@@ -41,10 +41,10 @@ class AbstractPeople {
     }
 
     validatePeopleInit() {
-        if(!(this.id > 0)) throw new ApplicationException(`invalid peopleId: ${this.id}`)
-        if(!this.name) throw new ApplicationException(`invalid people name: ${this.name}`)
-        if(!(this.mass > 0)) throw new ApplicationException(`invalid people mass: ${this.mass}`)
-        if(!(this.height > 0)) throw new ApplicationException(`invalid people height: ${this.height}`)
+        if(!(this.id > 0)) throw new ApplicationException(`Invalid peopleId: ${this.id}`)
+        if(!this.name) throw new ApplicationException(`Invalid people name (${this.name}) for User: ${this.id}`)
+        if(!(this.mass > 0)) throw new ApplicationException(`Invalid people mass (${this.mass}) for User: ${this.id}`)
+        if(!(this.height > 0)) throw new ApplicationException(`Invalid height mass (${this.height}) for User: ${this.id}`)
     }
 
     formatPeople() {
