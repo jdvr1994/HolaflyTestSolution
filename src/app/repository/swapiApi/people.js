@@ -1,22 +1,26 @@
 const AbstractRepository = require('../../domain/Commons/abstractRepository')
+const People = require('../../domain/People')
+const swapi_base_url = 'https://swapi.dev/api/'
 
 class PeopleRepository extends AbstractRepository {
-    db;
+    source;
 
-    constructor(_db){
-        super(_db)
-        this.db = _db;
+    constructor(_source){
+        super(_source)
+        this.source = _source;
     }
 
-    async get(id) {
-        throw new Error("To be implemented on PeopleRepository");
+    async get(id, lang) {
+        const peopleResponse = await this.source.genericRequest(`${swapi_base_url}people/${id}`, 'GET', null, true)
+        peopleResponse.id = id
+        return peopleResponse? await People.peopleFactory(peopleResponse,lang) : peopleResponse
     }
 
     async getAll() {
         throw new Error("To be implemented on PeopleRepository");
     }
 
-    async create(_people) {
+    async create(_people, lang) {
         throw new Error("To be implemented on PeopleRepository");
     }
 

@@ -1,15 +1,16 @@
 const AbstractRepository = require('../../domain/Commons/abstractRepository')
-
+const Planet = require('../../domain/Planet').Planet
 class PlanetRepository extends AbstractRepository {
-    db;
+    source;
 
-    constructor(_db){
-        super(_db)
-        this.db = _db;
+    constructor(_source){
+        super(_source)
+        this.source = _source;
     }
 
-    async get(id) {
-        throw new Error("To be implemented on PlanetRepository");
+    async get(id, lang) {
+        const planetResponse = (await this.source.swPlanet.findByPk(id))?.toJSON()
+        return planetResponse? new Planet(planetResponse) : planetResponse
     }
 
     async getAll() {
@@ -17,7 +18,8 @@ class PlanetRepository extends AbstractRepository {
     }
 
     async create(_planet) {
-        throw new Error("To be implemented on PlanetRepository");
+        const planetResponse = (await this.source.swPlanet.create(_planet)).toJSON();
+        return await new Planet(planetResponse);
     }
 
     async update() {

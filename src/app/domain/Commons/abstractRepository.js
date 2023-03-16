@@ -6,7 +6,7 @@ class AbstractRepository {
         }
     }
 
-    async get(id) {
+    async get(id, lang) {
         throw new Error("To be implemented");
     }
 

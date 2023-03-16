@@ -1,14 +1,15 @@
 const db = require('./db');
-const application = require('./application');
+const appControllers = require('./controllers');
 const repositories = require('./repository');
 const swapiFunctions = require('./swapiFunctions')
 
-const peopleRepository = new repositories.people(db)
-const planetRepository = new repositories.planet(db)
+const peopleSeqRepository = new repositories.peopleSequalize(db)
+const planetSeqRepository = new repositories.planetSequalize(db)
+const peopleSwapiRepository = new repositories.peopleSwapiAPI(swapiFunctions)
+const planetSwapiRepository = new repositories.planetSwapiAPI(swapiFunctions)
 
 const controllers = {
-    peopleController: new application.people(peopleRepository),
-    planetController: new application.planet(planetRepository)
+    peopleController: new appControllers.people(peopleSeqRepository,peopleSwapiRepository,planetSeqRepository,planetSwapiRepository),
 }
 
 module.exports = {
