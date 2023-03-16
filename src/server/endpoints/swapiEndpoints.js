@@ -1,4 +1,4 @@
-const swapi_base_url = 'https://swapi.dev/api/'
+const {swapi_base_url} = require('../../commons/config')
 
 const _isWookieeFormat = (req) => {
     if(req.query.format && req.query.format == 'wookiee'){

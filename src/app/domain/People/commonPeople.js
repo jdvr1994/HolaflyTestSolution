@@ -1,5 +1,5 @@
 const AbstractPeople = require('./abstractPeople')
-const swapi_base_url = 'https://swapi.dev/api/'
+const {swapi_base_url} = require('../../../commons/config')
 //  Class to encapsulate the people model src/app/db/models/swPeopleModel.js
 class CommonPeople extends AbstractPeople {
     constructor(_peopleData){

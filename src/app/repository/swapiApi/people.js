@@ -1,6 +1,6 @@
 const AbstractRepository = require('../../domain/Commons/abstractRepository')
 const People = require('../../domain/People')
-const swapi_base_url = 'https://swapi.dev/api/'
+const {swapi_base_url} = require('../../../commons/config')
 
 class PeopleRepository extends AbstractRepository {
     source;
