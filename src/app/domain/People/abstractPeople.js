@@ -1,3 +1,4 @@
+const ApplicationException = require('../../domain/Commons/exceptions/application.exception.js');
 class AbstractPeople {
 
     constructor(_peopleData) {
@@ -7,7 +8,8 @@ class AbstractPeople {
     }
 
     async init(){
-        throw new Error('To be implemented');
+        this.validatePeopleInit()
+        this.formatPeople()
     }
 
     getId() {
@@ -30,11 +32,26 @@ class AbstractPeople {
         return this.homeworldName;
     }
 
-    getHomeworlId() {
-        return this.homeworlId;
+    getHomeworldId() {
+        return this.homeworldId;
     }
 
     getWeightOnPlanet(planetId){
         throw new Error('To be implemented');
     }
+
+    validatePeopleInit() {
+        if(!(this.id > 0)) throw new ApplicationException(`invalid peopleId: ${this.id}`)
+        if(!this.name) throw new ApplicationException(`invalid people name: ${this.name}`)
+        if(!(this.mass > 0)) throw new ApplicationException(`invalid people mass: ${this.mass}`)
+        if(!(this.height > 0)) throw new ApplicationException(`invalid people height: ${this.height}`)
+    }
+
+    formatPeople() {
+        this.id = parseInt(this.id)
+        this.mass = parseInt(this.mass)
+        this.height = parseInt(this.height)
+    }
 }
+
+module.exports = AbstractPeople
