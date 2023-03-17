@@ -67,3 +67,7 @@ El presente código despliega un servidor node.js/express sobre el que se busca 
 
 
 Adicionalmente a estos endpoints, se requiere ampliar el paquete `People` con las clases y funciones que sean necesarias para cubrir el caso de que el formato del objeto retornado por la SWAPI sea en idioma Wookiee.
+
+#### Uso justificado de Eslint
+> Eslint es una herramienta muy importante para cualquier proyecto de software en JavaScript. Ayuda a detectar y corregir errores de sintaxis, detectar patrones de código potencialmente peligrosos y mantener un estilo de código coherente.
+> El uso de esta herramienta fue incorporado solo para esta version alterna (branch) para mantener el código principal sin incluir librerias extras.
