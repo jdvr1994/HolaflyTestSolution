@@ -1,13 +1,13 @@
-const peopleSequalize = require('./sequalize/people');
-const planetSequalize = require('./sequalize/planet');
-const logSequalize = require('./sequalize/log');
-const peopleSwapiAPI = require('./swapiApi/people');
-const planetSwapiAPI = require('./swapiApi/planet');
+const PeopleSequalize = require('./sequalize/people');
+const PlanetSequalize = require('./sequalize/planet');
+const LogSequalize = require('./sequalize/log');
+const PeopleSwapiAPI = require('./swapiApi/people');
+const PlanetSwapiAPI = require('./swapiApi/planet');
 
 module.exports = {
-    peopleSequalize,
-    planetSequalize,
-    logSequalize,
-    peopleSwapiAPI,
-    planetSwapiAPI
-}
+  PeopleSequalize,
+  PlanetSequalize,
+  LogSequalize,
+  PeopleSwapiAPI,
+  PlanetSwapiAPI,
+};

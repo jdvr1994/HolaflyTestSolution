@@ -1,34 +1,35 @@
-const AbstractController = require('../../domain/Commons/abstractController.js')
+const AbstractController = require('../../domain/Commons/abstractController');
 
 class LogController extends AbstractController {
-    repository;
-    ext_repository;
+  repository;
 
-    constructor(_repository, _ext_repository){
-        super(_repository)
-        this.repository = _repository;
-        this.ext_repository = _ext_repository;
-    }
+  ext_repository;
 
-    async getEntity() {
-        throw new Error("To be implemented on LogController");
-    }
+  constructor(_repository, _extRepository) {
+    super(_repository);
+    this.repository = _repository;
+    this.ext_repository = _extRepository;
+  }
 
-    async getAllEntities() {
-       return await this.repository.getAll()
-    }
+  async getEntity() {
+    throw new Error('To be implemented on LogController');
+  }
 
-    async createEntity(log) {
-        return await this.repository.create(log)
-    }
+  async getAllEntities() {
+    return await this.repository.getAll();
+  }
 
-    async updateEntity() {
-        throw new Error("To be implemented on LogController");
-    }
+  async createEntity(log) {
+    return await this.repository.create(log);
+  }
 
-    async deleteEntity() {
-        throw new Error("To be implemented on LogController");
-    }
+  async updateEntity() {
+    throw new Error('To be implemented on LogController');
+  }
+
+  async deleteEntity() {
+    throw new Error('To be implemented on LogController');
+  }
 }
 
-module.exports = LogController
+module.exports = LogController;
