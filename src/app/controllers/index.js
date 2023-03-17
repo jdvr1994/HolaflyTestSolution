@@ -1,10 +1,9 @@
-const people = require('./People');
-const planet = require('./Planet');
-const log = require('./Log');
+const People = require('./People');
+const Planet = require('./Planet');
+const Log = require('./Log');
 
 module.exports = {
-    people,
-    planet,
-    log
-}
-
+  People,
+  Planet,
+  Log,
+};
